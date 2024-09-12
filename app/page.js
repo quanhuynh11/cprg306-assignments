@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main>
@@ -8,8 +10,8 @@ export default function Home() {
 
       <section>
         <h2 className="text-2xl pt-5">Assignments</h2>
-      <ul className="list-disc">
-        <li>Week-2</li>
+      <ul>
+        <li><Link href="./week-2/" className="underline text-cyan-600 hover:text-cyan-300/75">Week-2</Link></li>
       </ul>
       </section>
     </main>
