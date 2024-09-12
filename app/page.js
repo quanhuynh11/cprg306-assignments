@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <header>
-        <h1 className="text-3xl">CPRG-306 Assignments</h1>
+        <h1 className="text-3xl">CPRG 306: Web Development 2 - Assignments</h1>
         <p>By: Quan Huynh</p>
       </header>
 
