@@ -8,7 +8,7 @@ export default function WeekThreePage() {
                 <HomeButton />
                 <h1 className="text-4xl pt-10 font-bold">Shopping List</h1>
             </header>
-            <section className="">
+            <section>
                 <ItemList />
             </section>
         </main>
