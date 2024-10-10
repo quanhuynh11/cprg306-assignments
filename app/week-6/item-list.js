@@ -2,10 +2,20 @@
 
 import { useState } from "react";
 import Item from "./item";
+import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 
 export default function ItemList() {
 
     const [sortBy, setSortBy] = useState("name");
+
+    let categoryActiveButtonStyles = "bg-indigo-500 p-5 text-2xl font-extrabold rounded w-1/6 m-5 hover:bg-indigo-500/60 active:bg-indigo-400";
+
+    let nameActiveButtonStyles = "bg-indigo-500 p-5 text-2xl font-extrabold rounded w-1/6 m-5 hover:bg-indigo-500/60 active:bg-indigo-400";
+    const disabledButtonStyles = "bg-indigo-500/20 p-5 text-2xl font-extrabold rounded w-1/6 m-5";
+
+    let isDisabledNameButton = true;
+    let isDisabledCategoryButton = false;
+
     const items = [
         {
             "id": "1h2GJKH12gkHG31h1H",
@@ -81,12 +91,24 @@ export default function ItemList() {
         }
     ]
 
+    if(sortBy == "name") {
+        isDisabledNameButton = true;
+        isDisabledCategoryButton = false;
+        nameActiveButtonStyles = disabledButtonStyles;
+    }
+    else if(sortBy == "category") {
+        isDisabledCategoryButton = true;
+        isDisabledNameButton = false;
+        categoryActiveButtonStyles = disabledButtonStyles;
+
+    }
+
     let sortedItems = [...items].sort((a, b) => {
         if(sortBy == "name") {
             return a.name > b.name ? 1 : -1;
         }
         else if (sortBy == "category") {
-            a.category > b.category ? 1 : -1;
+            return a.category > b.category ? 1 : -1;
         }
 
         return 0;
@@ -95,15 +117,12 @@ export default function ItemList() {
     return (
         <div>
             <section>
-                <h2 className="text-2xl py-5" >Sort by: </h2>
+                <h2 className="text-2xl pt-5" >Sort by: </h2>
 
                 <section>
-                    <button type="button" onClick={() => setSortBy("name")}>Name</button>
-                    <button type="button" onClick={() => setSortBy("category")} >Category</button>
-
-                    <p>{sortBy}</p>
+                    <button type="button" className={nameActiveButtonStyles} disabled={isDisabledNameButton} onClick={() => setSortBy("name")}>Name</button>
+                    <button type="button" className={categoryActiveButtonStyles} disabled={isDisabledCategoryButton} onClick={() => setSortBy("category")} >Category</button>
                 </section>
-                    
             </section>
 
             <section>
