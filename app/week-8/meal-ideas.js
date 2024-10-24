@@ -14,7 +14,6 @@ export default function MealIdeas({ingredient}) {
             if (!response.ok) console.log(response.status);
 
             const data = await response.json();
-            // console.dir(data);
             
             if(data.meals != null) {
 
@@ -32,7 +31,6 @@ export default function MealIdeas({ingredient}) {
     };
 
     async function getMealDetails(mealID) {
-        // console.log(mealID);
 
         try {
             const response = await fetch(
@@ -42,19 +40,23 @@ export default function MealIdeas({ingredient}) {
 
             const data = await response.json();
 
-            console.dir(data.meals.strIngredient1);
+            let meal = data.meals[0];
 
-            // console.log(data.idMeal);
-            // if(data.mealID != null) {
-            //     let ingredientList = [];
+            let ingredients = [];
 
-            //     for (let i = 0; i < 20; i++) {
-                    
-            //     };
-            // }
-            // else {
-                
-            // };
+            // console.dir(meal);
+
+            if(mealID != null) {
+
+                for (let i = 1; i <= 20; i++) {
+                    const ingredient = meal[`strIngredient${i}`];
+                    const measure = meal[`strMeasure${i}`];
+
+                    ingredients.push(`${measure} ${ingredient}`.trim(""));
+                }
+
+            };
+            // console.log(ingredients);
 
         } 
         catch (error) {
@@ -66,9 +68,9 @@ export default function MealIdeas({ingredient}) {
         getListOfMeals(ingredient);
     }, [ingredient]);
 
-    useEffect(() => {
-        console.dir(mealList);
-    }, [mealList]);
+    // useEffect(() => {
+    //     console.dir(mealList);
+    // }, [mealList]);
 
     return (
         <section>
