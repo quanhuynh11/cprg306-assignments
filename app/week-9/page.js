@@ -40,7 +40,6 @@ export default function SignInPage() {
             <p>Sign in with:</p>
             <button className="bg-cyan-900 p-5 m-5" onClick={handleSignIn}>GitHub</button>
             <button className="bg-red-600 p-5 m-5" onClick={handleSignOut}>Sign out</button>
-            <button onClick={userInfo}>user info</button>
             </section>
 
             {
