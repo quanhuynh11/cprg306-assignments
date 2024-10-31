@@ -11,17 +11,17 @@ import { useUserAuth } from "../_utils/auth-context";
 export default function Page() {
 
     const { user } = useUserAuth();
-
-    if(user == null) {
-        return null;
-    }
-
     let itemArray = itemData.map((item) => ({...item}));
     const [itemList, setItemList] = useState(itemArray);
     
     const [openForm, setOpenForm] = useState(false);
-
+    
     const [selectedItem, setSelectedItem] = useState("");
+    
+    if(user == null) {
+        return null;
+    }
+    
 
 
     const formWindow = (isFormOpen) => {
