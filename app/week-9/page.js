@@ -25,9 +25,6 @@ export default function SignInPage() {
         }
     };
 
-    const userInfo = () => {
-        console.log(user);
-    };
 
     return (
         <main className="p-5">
