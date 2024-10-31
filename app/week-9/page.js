@@ -38,8 +38,8 @@ export default function SignInPage() {
 
             <section>
             <p>Sign in with:</p>
-            <button className="bg-cyan-900 p-5 m-5" onClick={handleSignIn}>GitHub</button>
-            <button className="bg-red-600 p-5 m-5" onClick={handleSignOut}>Sign out</button>
+            <button className="bg-cyan-900 p-5 m-5 hover:bg-cyan-950 focus:bg-cyan-900" onClick={handleSignIn}>GitHub</button>
+            <button className="bg-red-600 p-5 m-5  hover:bg-red-800 focus:bg-red-600" onClick={handleSignOut}>Sign out</button>
             </section>
 
             {
@@ -48,7 +48,7 @@ export default function SignInPage() {
             }
 
             {
-                user && <Link href="/week-9/shopping-list">Go to Shopping List</Link>
+                user && <Link className="hover:underline" href="/week-9/shopping-list">Go to Shopping List</Link>
             }
         </main>
     );
