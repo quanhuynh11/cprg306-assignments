@@ -45,7 +45,7 @@ export default function SignInPage() {
             }
 
             {
-                user && <Link className="hover:underline" href="/week-9/shopping-list">Go to Shopping List</Link>
+                user && <Link className="hover:underline" href="/week-10/shopping-list">Go to Shopping List</Link>
             }
         </main>
     );

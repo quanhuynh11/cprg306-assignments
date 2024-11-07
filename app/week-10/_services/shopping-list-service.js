@@ -30,3 +30,11 @@ export async function addItem(userId, item) {
         console.log(`Error Encountered: ${error}`);
     }
 };
+
+export async function dbDeleteItem(userId, item) {
+    try {
+        
+    } catch (error) {
+        console.log(`Error Encountered: ${error}`);
+    }
+};

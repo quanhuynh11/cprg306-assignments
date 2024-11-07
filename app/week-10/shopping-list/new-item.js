@@ -75,6 +75,7 @@ export default function NewItem({ closeFormFunc }) {
         setCategory("");
 
         closeFormFunc(false);
+
     };
 
     if(!user) {

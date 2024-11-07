@@ -11,8 +11,7 @@ import { getItems } from "../_services/shopping-list-service";
 export default function Page() {
 
     const { user } = useUserAuth();
-    let itemArray = itemData.map((item) => ({...item}));
-    const [itemList, setItemList] = useState(itemArray);
+    const [itemList, setItemList] = useState([]);
     
     const [openForm, setOpenForm] = useState(false);
     
@@ -23,7 +22,7 @@ export default function Page() {
         if(user) {
             getItems(user.uid, setItemList);
         };
-    }, [user] );
+    }, [user, itemList]);
     
     
     
@@ -56,6 +55,7 @@ export default function Page() {
 
                 <section>
                 <button className="bg-lime-600 p-5 rounded mt-5 font-bold text-2xl active:bg-lime-500 hover:bg-lime-800" onClick={() => setOpenForm(true)}>Add Item</button>
+                {/* <button className="bg-orange-600 p-5 rounded mt-5 font-bold text-2xl active:bg-orange-500 hover:bg-orange-800 ml-5" onClick={() => window.location.reload()}>Refresh List</button> */}
                 </section>
 
                 <section className="m-5 p-5 w-1/2 bg-cyan-950">
